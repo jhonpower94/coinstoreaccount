@@ -299,7 +299,21 @@ export function DashboardIndex() {
   return (
     <>
       <Helmet>
-        <script src="//code.jivosite.com/widget/tcYCPabedY" async></script>
+        {(function (d, t) {
+          var BASE_URL = "https://app.chatwoot.com";
+          var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+          g.src = BASE_URL + "/packs/js/sdk.js";
+          g.defer = true;
+          g.async = true;
+          s.parentNode.insertBefore(g, s);
+          g.onload = function () {
+            window.chatwootSDK.run({
+              websiteToken: "yVAaP4jU1sQFkT9KcDwYyRaT",
+              baseUrl: BASE_URL,
+            });
+          };
+        })(document, "script")}
       </Helmet>
       <Outlet />
 
