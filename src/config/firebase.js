@@ -13,12 +13,12 @@ import { getStorage } from "firebase/storage";
 
 // Set up Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyDd8QgHnlD9KZr2xlW-qWo1eT2nvgLq9QE",
-  authDomain: "keplaget-9649d.firebaseapp.com",
-  projectId: "keplaget-9649d",
-  storageBucket: "keplaget-9649d.appspot.com",
-  messagingSenderId: "1051602869457",
-  appId: "1:1051602869457:web:4c022f19135ce2ec8379f0"
+  apiKey: "AIzaSyCuZ6tot4Itz2Dpn8ECm8gS7iWY5qxzhYU",
+  authDomain: "keplaget.firebaseapp.com",
+  projectId: "keplaget",
+  storageBucket: "keplaget.appspot.com",
+  messagingSenderId: "683947656775",
+  appId: "1:683947656775:web:9d0f10ee0c90e237975362"
 };
 
 const app = initializeApp(firebaseConfig);
