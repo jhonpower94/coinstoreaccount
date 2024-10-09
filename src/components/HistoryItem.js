@@ -39,6 +39,7 @@ const HistoryItem = ({ data, itemCode, imageCode, frameBorder }) => {
     timestamp,
     confirmation,
     cointitle,
+    referance,
   } = data;
   const isCredit = transaction_type === "Credit";
   const isPending = confirmation < 3;
@@ -55,7 +56,7 @@ const HistoryItem = ({ data, itemCode, imageCode, frameBorder }) => {
     <div
       onClick={() =>
         navigate(
-          `/detail/${transaction_type}/${isrecipient}/${confirmation}/${cointitle}/${timestampset}/${amount}`,
+          `/detail/${transaction_type}/${isrecipient}/${confirmation}/${cointitle}/${timestampset}/${amount}/${referance}`,
           { state: { data: data } }
         )
       }
@@ -88,7 +89,7 @@ const HistoryItem = ({ data, itemCode, imageCode, frameBorder }) => {
           <CurrencyFormat amount={amount} prefix={"$"} seperator={true} />
         </Typography>
         <Typography variant="caption" color={isPending ? "orange" : "green"}>
-          {isPending ? "Pending" : "Confirmed"}
+          {isPending ? "Processing" : "Confirmed"}
         </Typography>
       </div>
     </div>

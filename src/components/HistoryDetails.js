@@ -1,4 +1,6 @@
 import {
+  Box,
+  Button,
   CircularProgress,
   List,
   ListItem,
@@ -22,11 +24,27 @@ export function TransDetailDailog() {
     recipient,
     confirmation,
     timestamp,
+    referance,
   } = useParams();
 
   const isCredit = transaction_type === "Credit";
   const isrecipient = isCredit ? "" : recipient;
   const isConfirmation = confirmation < 3;
+
+  const switchTrxUrl = (key) => {
+    switch (key) {
+      case "ETH":
+        return "https://etherscan.io/tx";
+      case "USDT ERC20":
+        return "https://etherscan.io/tx";
+      case "TRX":
+        return "https://tronscan.org/#/transaction";
+      case "USDT TRC20":
+        return "https://tronscan.org/#/transaction";
+      default:
+        return "https://etherscan.io/tx";
+    }
+  };
 
   return (
     <div>
@@ -86,6 +104,25 @@ export function TransDetailDailog() {
             </ListItem>
           ))}
         </List>
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignContent="center"
+          pt={4}
+        >
+          {isCredit ? (
+            <Button
+              variant="contained"
+              color="primary"
+              disableElevation
+              onClick={() =>
+                window.open(`${switchTrxUrl(cointitle)}/${referance}`, "_blank")
+              }
+            >
+              View transaction
+            </Button>
+          ) : null}
+        </Box>
       </div>
     </div>
   );

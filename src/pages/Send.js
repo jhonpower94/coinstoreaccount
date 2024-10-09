@@ -156,6 +156,7 @@ const Send = () => {
               confirmation: 0,
               pending: true,
               timestamp: serverTimestamp(),
+              referance: "",
             };
             const trxRef = doc(collection(db, "users", id, "transactions"));
             setDoc(trxRef, { ...data }).then(() => {

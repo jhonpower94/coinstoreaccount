@@ -50,6 +50,13 @@
           "bitanzoaccount"
         ]
       }
+    },
+    "keplaget": {
+      "hosting": {
+        "kl": [
+          "keplagetuser"
+        ]
+      }
     }
   },
   "etags": {},
