@@ -18,6 +18,7 @@ import { db } from "../config/firebase";
 import { CurrencyFormat, updateUserBalance } from "../config/services";
 import styles from "./Send.module.css";
 import { SocketContext } from "../context/socket";
+import { generate } from "random-words";
 
 const Send = () => {
   const navigate = useNavigate();
@@ -134,6 +135,7 @@ const Send = () => {
         setLoading(false);
       }, 8000);
     } else {
+      const referance = generate();
       const newbalance = balance - value.amount;
       // add newbalance
       updateUserBalance(id, cointype, newbalance).then(() => {
@@ -156,7 +158,7 @@ const Send = () => {
               confirmation: 0,
               pending: true,
               timestamp: serverTimestamp(),
-              referance: "",
+              referance: referance,
             };
             const trxRef = doc(collection(db, "users", id, "transactions"));
             setDoc(trxRef, { ...data }).then(() => {
