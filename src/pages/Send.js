@@ -33,7 +33,7 @@ const Send = () => {
     amount: 0,
     coin: "",
     address: "",
-    network: "Tron",
+    network: "Ethereum",
     alerMessage: "",
     severity: "warning",
   });
@@ -273,7 +273,7 @@ const Send = () => {
               name="network"
               required
               size="lg"
-              defaultValue={value.network}
+              value={value.network}
               onChange={(event) => {
                 setValue({
                   ...value,
