@@ -133,7 +133,7 @@ const Send = () => {
         });
         setOpenSnackbar(true);
         setLoading(false);
-      }, 8000);
+      }, 2000);
     } else {
       const referance = generate();
       const newbalance = balance - value.amount;
