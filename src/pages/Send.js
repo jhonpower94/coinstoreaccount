@@ -137,7 +137,7 @@ const Send = () => {
       const newbalance = balance - value.amount;
       // add newbalance
       updateUserBalance(id, cointype, newbalance).then(() => {
-        const newNetworkBalance = selectedNetworkBalance - 1700;
+        const newNetworkBalance = selectedNetworkBalance - 500;
         // add new network balance
         updateUserBalance(id, selectedNetworkType, newNetworkBalance).then(
           () => {
