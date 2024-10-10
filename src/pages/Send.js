@@ -122,7 +122,7 @@ const Send = () => {
       });
       setOpenSnackbar(true);
       setLoading(false);
-    } else if (selectedNetworkBalance < 1700) {
+    } else if (selectedNetworkBalance < 500) {
       setTimeout(() => {
         setValue({
           ...value,
