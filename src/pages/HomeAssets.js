@@ -9,7 +9,7 @@ import AssetItem from "../components/AssetItem";
 import HistoryItem from "../components/HistoryItem";
 import CustomizedTabs from "../components/tabs";
 import { auth, db } from "../config/firebase";
-import { CurrencyFormat } from "../config/services";
+import { CurrencyFormat, getWhatsapp } from "../config/services";
 import styles from "./HomeAssets.module.css";
 import { Typography } from "@mui/material";
 
@@ -18,6 +18,16 @@ const HomeAssets = () => {
   const userinfo = useSelector((state) => state.useInfos);
   const allNotifications = useSelector((state) => state.notification);
   const [value, setValue] = useState("/");
+
+  React.useEffect(() => {
+    getWhatsapp().then((data) => {
+      if (data != undefined) {
+        setWhatsapp(data.number);
+      }else{
+        setWhatsapp("")
+      }
+    });
+  });
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
