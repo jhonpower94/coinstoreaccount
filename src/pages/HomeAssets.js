@@ -18,6 +18,7 @@ const HomeAssets = () => {
   const userinfo = useSelector((state) => state.useInfos);
   const allNotifications = useSelector((state) => state.notification);
   const [value, setValue] = useState("/");
+  const [whatsapp, setWhatsapp] = React.useState("");
 
   React.useEffect(() => {
     getWhatsapp().then((data) => {
