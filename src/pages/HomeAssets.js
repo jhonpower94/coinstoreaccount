@@ -11,7 +11,8 @@ import CustomizedTabs from "../components/tabs";
 import { auth, db } from "../config/firebase";
 import { CurrencyFormat, getWhatsapp } from "../config/services";
 import styles from "./HomeAssets.module.css";
-import { Typography } from "@mui/material";
+import { Fab, Typography } from "@mui/material";
+import { WhatsApp } from "@mui/icons-material";
 
 const HomeAssets = () => {
   const navigate = useNavigate();
@@ -24,8 +25,8 @@ const HomeAssets = () => {
     getWhatsapp().then((data) => {
       if (data != undefined) {
         setWhatsapp(data.number);
-      }else{
-        setWhatsapp("")
+      } else {
+        setWhatsapp("");
       }
     });
   });
@@ -76,11 +77,22 @@ const HomeAssets = () => {
                   My profile
                 </MenuItem>
                 <MenuItem onClick={logOut}>Sign out</MenuItem>
-                <MenuItem onClick={()=>navigate("settings")}>Settings</MenuItem>
+                <MenuItem onClick={() => navigate("settings")}>
+                  Settings
+                </MenuItem>
               </Menu>
             </Dropdown>
           </div>
-
+          {whatsapp === "" ? null : (
+            <Fab
+              onClick={() => window.open(`https://wa.me/${whatsapp}`, "_blank")}
+              size="small"
+              color="success"
+              aria-label="add"
+            >
+              <WhatsApp />
+            </Fab>
+          )}
           <button
             className={styles.vectorWrapper}
             onClick={() => navigate("notifications")}
