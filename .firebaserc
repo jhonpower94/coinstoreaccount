@@ -6,7 +6,8 @@
     "bb": "bitboxwallet-d8b3d",
     "bc": "basecoin-33efc",
     "ba": "bitanzo",
-    "kl": "keplaget"
+    "kl": "keplaget",
+    "gb": "gnbit-c8942"
   },
   "targets": {
     "cryptospace-4979e": {
@@ -55,6 +56,13 @@
       "hosting": {
         "kl": [
           "keplagetuser"
+        ]
+      }
+    },
+    "gnbit-c8942": {
+      "hosting": {
+        "klg": [
+          "keplagetusers"
         ]
       }
     }
