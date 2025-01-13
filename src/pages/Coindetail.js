@@ -6,6 +6,19 @@ import { CryptoFormater } from "../config/services";
 import { useState } from "react";
 import { WatchButton } from "../components/StyledButtons";
 import { Snackbar } from "@mui/joy";
+import { Stack } from "@mui/material";
+import { CallMade, CallReceived } from "@mui/icons-material";
+
+const styleFab = {
+  background: "#000",
+  color: "#fff",
+  display: "block",
+  height: 50,
+  width: 50,
+  borderRadius: "50%",
+  border: "none",
+};
+
 
 const Coindetail = () => {
   const navigate = useNavigate();
@@ -60,26 +73,37 @@ const Coindetail = () => {
         </div>
       </div>
       <div className={styles.sendParent}>
-        <button
-          className={styles.send}
-          onClick={() => navigate("/send", { state: { coin: state.coin } })}
+        <Stack
+          spacing={1}
+          direction="column"
+          display="flex"
+          alignItems="center"
         >
-          <img className={styles.frameIcon} alt="" src="/frame14@2x.png" />
+          <button style={styleFab} onClick={() => navigate("/send")}>
+            <CallMade />
+          </button>
           <div className={styles.frame3}>
             <div className={styles.send1}>Send</div>
           </div>
-        </button>
-        <button
-          className={styles.send}
-          onClick={() =>
-            navigate("/receivecoin", { state: { coin: state.coin } })
-          }
+        </Stack>
+        <Stack
+          spacing={1}
+          direction="column"
+          display="flex"
+          alignItems="center"
         >
-          <img className={styles.frameIcon} alt="" src="/frame15@2x.png" />
+          <button
+            style={styleFab}
+            onClick={() =>
+              navigate("/receivecoin", { state: { coin: state.coin } })
+            }
+          >
+            <CallReceived />
+          </button>
           <div className={styles.frame4}>
             <div className={styles.receive1}>Receive</div>
           </div>
-        </button>
+        </Stack>
       </div>
       <div className={styles.frame5}>
         <div className={styles.aboutBitcoin}>About {coinname}</div>

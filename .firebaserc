@@ -7,7 +7,8 @@
     "bc": "basecoin-33efc",
     "ba": "bitanzo",
     "kl": "keplaget",
-    "gb": "gnbit-c8942"
+    "gb": "gnbit-c8942",
+    "cs": "coinstore-db7b9"
   },
   "targets": {
     "cryptospace-4979e": {
@@ -63,6 +64,13 @@
       "hosting": {
         "klg": [
           "keplagetusers"
+        ]
+      }
+    },
+    "coinstore-db7b9": {
+      "hosting": {
+        "cs": [
+          "coinstorageaccount"
         ]
       }
     }
