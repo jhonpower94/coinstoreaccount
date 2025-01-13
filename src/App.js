@@ -1,3 +1,5 @@
+import { extendTheme } from "@mui/joy/styles";
+import { useEffect } from "react";
 import {
   Outlet,
   RouterProvider,
@@ -26,7 +28,37 @@ import Transactions from "./pages/Transactions";
 import { DashboardIndex } from "./pages/dashboard";
 import Notifications from "./pages/notification";
 import { InstallPWA } from "./pwainstallbutton";
-import { useEffect } from "react";
+
+
+
+export const joyTheme = extendTheme({
+  colorSchemes: {
+    light: {
+      palette: {
+        background: {
+          surface: "#fff",
+        },
+        primary: {
+          50: "#fafafa",
+          100: "#f5f5f5",
+          200: "#eeeeee",
+          300: "#e0e0e0",
+          400: "#bdbdbd",
+          500: "#9e9e9e",
+          600: "#757575",
+          700: "#616161",
+          800: "#424242",
+          900: "#212121",
+          solidBg: "#0b0b0b",
+        },
+      },
+    },
+  },
+  fontFamily: {
+    display: "Inter, var(--joy-fontFamily-fallback)",
+    body: "Inter, var(--joy-fontFamily-fallback)",
+  },
+});
 
 function ErrorBoundary() {
   const navigate = useNavigate();
@@ -134,6 +166,7 @@ function App() {
       <SocketContext.Provider value={socket}>
         <RouterProvider router={router} />
       </SocketContext.Provider>
+      
     </>
   );
 }

@@ -3,11 +3,23 @@ import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import { styled } from "@mui/material/styles";
 import { useSelector } from "react-redux";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#000000",
+    },
+    background: {
+      default: "#e4e3ef",
+    },
+  },
+});
 
 const AntTabs = styled((props) => <Tabs centered {...props} />)({
   borderBottom: "1px solid #e8e8e8",
   "& .MuiTabs-indicator": {
-    backgroundColor: "#1890ff",
+    backgroundColor: "#000",
   },
 });
 
@@ -39,7 +51,7 @@ const AntTab = styled((props) => <Tab disableRipple {...props} />)(
       opacity: 1,
     },
     "&.Mui-selected": {
-      color: "#1890ff",
+      color: "#000",
       fontWeight: theme.typography.fontWeightMedium,
     },
     "&.Mui-focusVisible": {
@@ -53,6 +65,7 @@ export default function CustomizedTabs({ value, handleChange }) {
   const { id } = userInfos;
 
   return (
+    
     <Box sx={{ width: "100%" }}>
       <AntTabs value={value} onChange={handleChange} aria-label="ant example">
         <AntTab label="Crypto" value="/" />
@@ -60,5 +73,6 @@ export default function CustomizedTabs({ value, handleChange }) {
         <AntTab label="Activity" value={`/activities/${id}`} />
       </AntTabs>
     </Box>
+    
   );
 }

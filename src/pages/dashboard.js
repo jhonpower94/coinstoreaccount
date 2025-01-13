@@ -1,23 +1,38 @@
+import { Backdrop, Fab } from "@mui/material";
+import axios from "axios";
+import axiosRetry from "axios-retry";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
-import { auth, db } from "../config/firebase";
-import { coinData$, userinfo$, walletData$ } from "../redux/action";
-import axios from "axios";
-import { SocketContext } from "../context/socket";
-import axiosRetry from "axios-retry";
-import { getNotification } from "../config/services";
-import { Backdrop } from "@mui/material";
 import { CustomCirleLoader } from "../components/loader";
-import { Helmet } from "react-helmet";
+import { auth, db } from "../config/firebase";
+import { getNotification, getWhatsapp } from "../config/services";
+import { SocketContext } from "../context/socket";
+import { coinData$, userinfo$, walletData$ } from "../redux/action";
+
+import { WhatsApp } from "@mui/icons-material";
 
 export function DashboardIndex() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const socket = useContext(SocketContext);
   const dispatch = useDispatch();
+  const [whatsapp, setWhatsapp] = useState("");
+
+  const styleFab = {
+    position: "fixed",
+    bottom: 16,
+    right: 16,
+    background: "#083700",
+    color: "#fff",
+    display: "block",
+    height: 50,
+    width: 50,
+    borderRadius: "50%",
+    border: "none",
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -294,27 +309,17 @@ export function DashboardIndex() {
         navigate("/auth");
       }
     });
+    getWhatsapp().then((data) => {
+      if (data != undefined) {
+        setWhatsapp(data.number);
+      } else {
+        setWhatsapp("");
+      }
+    });
   }, [socket]);
 
   return (
     <>
-      <Helmet>
-        {(function (d, t) {
-          var BASE_URL = "https://app.chatwoot.com";
-          var g = d.createElement(t),
-            s = d.getElementsByTagName(t)[0];
-          g.src = BASE_URL + "/packs/js/sdk.js";
-          g.defer = true;
-          g.async = true;
-          s.parentNode.insertBefore(g, s);
-          g.onload = function () {
-            window.chatwootSDK.run({
-              websiteToken: "yVAaP4jU1sQFkT9KcDwYyRaT",
-              baseUrl: BASE_URL,
-            });
-          };
-        })(document, "script")}
-      </Helmet>
       <Outlet />
 
       <Backdrop
@@ -323,6 +328,11 @@ export function DashboardIndex() {
       >
         <CustomCirleLoader />
       </Backdrop>
+      {whatsapp === "" ? null : (
+        <button style={styleFab}>
+          <WhatsApp />
+        </button>
+      )}
     </>
   );
 }

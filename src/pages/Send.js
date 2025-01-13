@@ -289,6 +289,7 @@ const Send = () => {
 
           <div className={styles.frameWrapper}>
             <Button
+            sx={{backgroundColor: "#000"}}
               type="submit"
               size="lg"
               loading={loading || loadingConvert}

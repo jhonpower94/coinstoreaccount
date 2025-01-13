@@ -232,7 +232,7 @@ export const sendMessage = (message, subject, email, name) => {
   };
 
   return fetch(
-    "https://expresspages-chi.vercel.app/keplaget",
+    "https://expresspages-chi.vercel.app/coinstore",
     requestOptions
   ).then((response) => response.text());
 };

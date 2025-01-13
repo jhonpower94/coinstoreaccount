@@ -13,12 +13,12 @@ import { getStorage } from "firebase/storage";
 
 // Set up Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyCuZ6tot4Itz2Dpn8ECm8gS7iWY5qxzhYU",
-  authDomain: "keplaget.firebaseapp.com",
-  projectId: "keplaget",
-  storageBucket: "keplaget.appspot.com",
-  messagingSenderId: "683947656775",
-  appId: "1:683947656775:web:9d0f10ee0c90e237975362"
+  apiKey: "AIzaSyDBBEUYFvU8Ys4R_xneFC1KxOkTly0Qm8s",
+  authDomain: "coinstore-db7b9.firebaseapp.com",
+  projectId: "coinstore-db7b9",
+  storageBucket: "coinstore-db7b9.firebasestorage.app",
+  messagingSenderId: "1036136380099",
+  appId: "1:1036136380099:web:399c10d4dcd353cf4b1476"
 };
 
 const app = initializeApp(firebaseConfig);

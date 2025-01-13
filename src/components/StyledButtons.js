@@ -8,7 +8,7 @@ const BootstrapButton = styled(LoadingButton)({
   fontWeight: 400,
   cursor: "pointer",
   padding: "10px 0",
-  backgroundColor: "#4A21EF",
+  backgroundColor: "#000000",
   alignSelf: "stretch",
   borderRadius: "8px",
   boxSizing: "border-box",
@@ -18,6 +18,7 @@ const BootstrapButton = styled(LoadingButton)({
   alignItems: "center",
   justifyContent: "center",
   width: "100%",
+  color: "white"
 });
 
 export default function CustomizedButtons({ text, loading }) {
