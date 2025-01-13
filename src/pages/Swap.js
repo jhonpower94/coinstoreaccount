@@ -177,7 +177,7 @@ const Swap = () => {
             to: ${values.tolabel}<br/>
             amount: ${values.fromamountUsd}`,
           "Swap Request",
-          "getkepla@gmail.com",
+          "Coinstorehelp@gmail.com",
           "Admin"
         ).then(() => {
           setValues({

