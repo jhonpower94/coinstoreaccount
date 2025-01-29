@@ -39,8 +39,10 @@ const HistoryItem = ({ data, itemCode, imageCode, frameBorder }) => {
     timestamp,
     confirmation,
     cointitle,
-    referance,
   } = data;
+
+  const referance = data.referance === "" ? "-" : data.referance;
+
   const isCredit = transaction_type === "Credit";
   const isPending = confirmation < 3;
   const isrecipient = isCredit ? "-" : recipient;
