@@ -19,7 +19,6 @@ const styleFab = {
   border: "none",
 };
 
-
 const Coindetail = () => {
   const navigate = useNavigate();
   let { state } = useLocation();
@@ -79,7 +78,10 @@ const Coindetail = () => {
           display="flex"
           alignItems="center"
         >
-          <button style={styleFab} onClick={() => navigate("/send")}>
+          <button
+            style={styleFab}
+            onClick={() => navigate("/send", { state: { coin: state.coin } })}
+          >
             <CallMade />
           </button>
           <div className={styles.frame3}>
