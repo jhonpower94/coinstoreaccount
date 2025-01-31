@@ -103,26 +103,29 @@ export function TransDetailDailog() {
               </ListItemSecondaryAction>
             </ListItem>
           ))}
+          {referance === "-" ? null : (
+            <ListItem>
+              <ListItemText
+                primary={"Txid"}
+                secondary={"Transaction id"}
+                primaryTypographyProps={{ variant: "h6" }}
+              />
+              <ListItemSecondaryAction>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    width: 100,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {referance}
+                </Typography>
+              </ListItemSecondaryAction>
+            </ListItem>
+          )}
         </List>
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignContent="center"
-          pt={4}
-        >
-          {isCredit ? (
-            <Button
-              variant="contained"
-              color="primary"
-              disableElevation
-              onClick={() =>
-                window.open(`${switchTrxUrl(cointitle)}/${referance}`, "_blank")
-              }
-            >
-              View transaction
-            </Button>
-          ) : null}
-        </Box>
       </div>
     </div>
   );
