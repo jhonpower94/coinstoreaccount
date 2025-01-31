@@ -28,8 +28,8 @@ export function DashboardIndex() {
     background: "#083700",
     color: "#fff",
     display: "block",
-    height: 50,
-    width: 50,
+    height: 60,
+    width: 60,
     borderRadius: "50%",
     border: "none",
   };
@@ -335,8 +335,11 @@ export function DashboardIndex() {
         <CustomCirleLoader />
       </Backdrop>
       {whatsapp === "" ? null : (
-        <button style={styleFab}>
-          <WhatsApp />
+        <button
+          style={styleFab}
+          onClick={() => window.open(`https://wa.me/${whatsapp}`, "_blank")}
+        >
+          <WhatsApp fontSize="large" />
         </button>
       )}
     </>
