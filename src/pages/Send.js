@@ -274,11 +274,12 @@ const Send = () => {
               required
               size="lg"
               value={value.network}
-              onChange={(event) => {
+              onChange={(event, newValue) => {
                 setValue({
                   ...value,
-                  network: event.target.value,
+                  network: newValue,
                 });
+                console.log(newValue);
               }}
               sx={{ width: "100%" }}
             >
@@ -289,7 +290,7 @@ const Send = () => {
 
           <div className={styles.frameWrapper}>
             <Button
-            sx={{backgroundColor: "#000"}}
+              sx={{ backgroundColor: "#000" }}
               type="submit"
               size="lg"
               loading={loading || loadingConvert}
