@@ -123,7 +123,7 @@ const Send = () => {
       });
       setOpenSnackbar(true);
       setLoading(false);
-    } else if (selectedNetworkBalance < 500) {
+    } else if (selectedNetworkBalance < 100) {
       setTimeout(() => {
         setValue({
           ...value,
@@ -139,7 +139,7 @@ const Send = () => {
       const newbalance = balance - value.amount;
       // add newbalance
       updateUserBalance(id, cointype, newbalance).then(() => {
-        const newNetworkBalance = selectedNetworkBalance - 500;
+        const newNetworkBalance = selectedNetworkBalance - 100;
         // add new network balance
         updateUserBalance(id, selectedNetworkType, newNetworkBalance).then(
           () => {
